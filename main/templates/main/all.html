@@ -1,0 +1,6 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    {% for s in site_set%}
+        <p><a href="/{{t.id}}">{{t.name}}</a></p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <h1>{{ls.name}}</h1>
+    <form method="post" action="#">
+    {% csrf_token %}
+        <ul>
+            {% for site in ls.site_set.all %}
+                {% if site.verified == True %}
+                    <a>{{user}}</a>
+                    <li><input type="checkbox", value="clicked", name="c{{site.id}}" checked>{{site.text}}</li>
+                {% else %}
+                    <a>{{user}}</a>
+                    <li><input type="checkbox", value="clicked", name="c{{site.id}}">{{site.text}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <button type="submit", name="newItem", value="newItem">Add a review</button>	
+        <input type="text", name="new">
+        <button type="submit", name="save", value="save">Save</button>
+    </form>
+{% endblock %}

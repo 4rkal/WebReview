@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1>Add a site</h1>
+<form method="post" action="/addsite/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit", name="submit" class="btn btn-success">Submit a new site</button>
+</form>
+{% endblock %}
