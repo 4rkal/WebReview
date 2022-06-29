@@ -4,12 +4,15 @@
     <form method="post" action="#">
     {% csrf_token %}
         <ul>
+
+            <p>{{ Topic.desc }}</p>
+            <p>{{ Topic.timestamp }}</p>
             {% for site in ls.site_set.all %}
                 {% if site.verified == True %}
-                    <a>{{user}}</a>
+                    <p>{{ Topic.author }}</p>
                     <li><input type="checkbox", value="clicked", name="c{{site.id}}" checked>{{site.text}}</li>
                 {% else %}
-                    <a>{{user}}</a>
+                    <p>{{ Topic.author }}</p>
                     <li><input type="checkbox", value="clicked", name="c{{site.id}}">{{site.text}}</li>
                 {% endif %}
             {% endfor %}

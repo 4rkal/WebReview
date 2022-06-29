@@ -40,6 +40,7 @@ def addsite(response):
 
         if form.is_valid():
             n = form.cleaned_data["name"]
+            # response.author.topic_set.create(name=n)
             t = Topic(name=n)
             t.save()
         return HttpResponseRedirect("/%i"%t.id)
